@@ -2,6 +2,7 @@ package avventura.umani;
 
 public class Barbaro extends Avventuriero{
     int danno;
+    String icona = icona = "\uD83E\uDE93";
 
     public Barbaro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);

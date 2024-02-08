@@ -1,21 +1,33 @@
 package avventura.umani;
 
 public class Druido extends Avventuriero {
-    double forzaCura = 5;
+    int forzaCura;
 
     public Druido(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
+        this.forzaCura = 1;
     }
 
-    public Druido(String nome, String razza) {
+    public Druido(String nome, String razza, int forzaCura) {
         super(nome, razza);
+        this.forzaCura = forzaCura;
     }
 
-    public Druido(String nome, String razza, int eta) {
+    public Druido(String nome, String razza, int eta, int forzaCura) {
         super(nome, razza, eta);
+        this.forzaCura = forzaCura;
     }
 
-    public Druido() {
+    public Druido(int forzaCura) {
+        this.forzaCura = forzaCura;
+    }
+
+    public int getForzaCura() {
+        return forzaCura;
+    }
+
+    public void setForzaCura(int forzaCura) {
+        this.forzaCura = forzaCura;
     }
 
     @Override

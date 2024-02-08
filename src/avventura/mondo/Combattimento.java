@@ -21,11 +21,8 @@ public class Combattimento {
         int numNemici = nemici.size();
         int numAvventurieri = party.size();
 
-        // Trova il numero massimo di personaggi (mostri o avventurieri)
-        int maxCharacters = Math.max(numNemici, numAvventurieri);
-
         // Stampa il nome dei mostri o spazi vuoti se non ci sono abbastanza mostri
-        for (int i = 0; i < maxCharacters; i++) {
+        for (int i = 0; i < numAvventurieri; i++) {
             if (i < numNemici) {
                 System.out.print("----" + nemici.get(i).getNome());
             } else {
@@ -35,7 +32,7 @@ public class Combattimento {
         System.out.println("----");
 
         // Stampa il danno dei nemici sotto le loro icone
-        for (int i = 0; i < maxCharacters; i++) {
+        for (int i = 0; i < numAvventurieri; i++) {
             if (i < numNemici) {
                 System.out.print("    " + nemici.get(i).getDanno());
                 if (nemici.get(i).getDanno() < 10) System.out.print(' ');
@@ -44,20 +41,20 @@ public class Combattimento {
         System.out.println();
 
         // Stampa la riga vuota tra i nomi dei mostri e degli avventurieri
-        for (int i = 0; i < maxCharacters; i++) {
+        for (int i = 0; i < numAvventurieri; i++) {
             System.out.print("   ");
         }
         System.out.println("⚔\uFE0F");
 
         // Stampa il danno degli avventurieri sopra le loro icone
-        for (int i = 0; i < maxCharacters; i++) {
+        for (int i = 0; i < numAvventurieri; i++) {
             System.out.print("    " + party.get(i).getDanno());
-            if (nemici.get(i).getDanno() < 10) System.out.print(' ');
+            if (party.get(i).getDanno() < 10) System.out.print(' ');
         }
         System.out.println();
 
         // Stampa il nome degli avventurieri o spazi vuoti se non ci sono abbastanza avventurieri
-        for (int i = 0; i < maxCharacters; i++) {
+        for (int i = 0; i < numAvventurieri; i++) {
             System.out.print("----" + party.get(i).getIcona());
         }
         System.out.println("----");

@@ -1,6 +1,6 @@
 package avventura.mondo;
-import avventura.mostri.Mostro;
 import avventura.umani.Avventuriero;
+import avventura.umani.Druido;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -18,7 +18,8 @@ public class Giorno {
         }
         return -1;
     }
-    private void EquipWeapon(String classe, int danno){
+
+    private void equipWeapon(String classe, int danno){
         Scanner tastiera = new Scanner(System.in);
         int idxMembro = checkClass(classe);
         if (idxMembro >= 0){
@@ -31,25 +32,53 @@ public class Giorno {
             }else System.out.println("Non equipaggiato.");
         } else System.out.println("Nessun membro del tuo party può usarlo.");
     }
+
+    private void addSpell(String classe, int danno){
+        int idxMembro = checkClass(classe);
+        if (idxMembro >= 0){
+            Avventuriero membro = party.get(idxMembro);
+            System.out.println(party.get(idxMembro).getNome()+" può impararlo.");
+            membro.setDanno(membro.getDanno()+danno);
+            System.out.println(membro.getNome() + " ha imparato un nuovo incantesimo. Il suo potere totale ora è " + membro.getDanno());
+        } else System.out.println("Nessun membro del tuo party può usarlo.");
+    }
+
+    private void equipRecipe(String classe, int danno){
+        Scanner tastiera = new Scanner(System.in);
+        int idxMembro = checkClass(classe);
+        if (idxMembro >= 0){
+            Druido membro = (Druido) party.get(idxMembro);
+            System.out.println(party.get(idxMembro).getNome()+" può imparalo.");
+            System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ membro.getNome() + ": "+ membro.getForzaCura());
+            String scelta = tastiera.nextLine();
+            if (scelta.equalsIgnoreCase("s")){
+                membro.setForzaCura(danno);
+            }else System.out.println("Non imparato.");
+        } else System.out.println("Nessun membro del tuo party può usarlo.");
+    }
     public void GeneraEvento(){
         Random rand = new Random();
         int nEvento = rand.nextInt(4);
         if (nEvento == 0){
             int danno = rand.nextInt(10)+3;
-            System.out.println("Hai trovato una spada! (danno: " + danno + ")");
-            EquipWeapon("Barbaro", danno);
+            System.out.println("Hai trovato un'ascia! (danno: " + danno + ")");
+            equipWeapon("Barbaro", danno);
         } else if (nEvento == 1) {
             int danno = rand.nextInt(7)+1;
             System.out.println("Hai trovato un coltello! (danno: " + danno + ")");
-            EquipWeapon("Ladro", danno);
+            equipWeapon("Ladro", danno);
         } else if (nEvento == 2) {
-            int danno = rand.nextInt(7)+1;
-            System.out.println("Hai trovato un coltello! (danno: " + danno + ")");
-            EquipWeapon("Ladro", danno);
+            int danno = rand.nextInt(5) + 1;
+            System.out.println("Hai trovato una pergamena! (danno: +" + danno + ")");
+            addSpell("Mago", danno);
+        } else if (nEvento == 3) {
+            int danno = rand.nextInt(5) + 1;
+            System.out.println("Hai trovato una ricetta! (danno nemico: -" + danno + ")");
+            addSpell("Druido", danno);
         } else {
             int danno = rand.nextInt(10)+3;
             System.out.println("Hai trovato una spada! (danno: " + danno + ")");
-            EquipWeapon("Barbaro", danno);
+            equipWeapon("Barbaro", danno);
         }
     }
     public Giorno(ArrayList<Avventuriero> party) {

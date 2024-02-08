@@ -3,6 +3,7 @@ package avventura.umani;
 import java.util.Random;
 
 public class Ladro extends Avventuriero{
+    String icona = "\uD83D\uDDE1\uFE0F";
     public Ladro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
     }
