@@ -1,4 +1,4 @@
-package umani;
+package avventura.umani;
 
 public class Mago extends Avventuriero{
     int mana = 5;

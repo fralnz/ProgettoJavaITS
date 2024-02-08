@@ -1,4 +1,4 @@
-package umani;
+package avventura.umani;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ public abstract class Avventuriero {
     String nome, razza;
     char sesso;
     int eta;
-    double danno, hp;
+    double danno;
 
     public Avventuriero(String nome, String razza, char sesso, int eta) {
         this.nome = nome;
@@ -61,6 +61,7 @@ public abstract class Avventuriero {
                         2) Mago
                         3) Druido
                         4) Domatore
+                        5) Ladro
                         """);
                 scelta = tastiera.nextInt();
                 if (scelta == 0) {
@@ -69,6 +70,7 @@ public abstract class Avventuriero {
                             2) MAGO: capace di usare magia
                             3) DRUIDO: capace di curare e parlare con gli animali
                             4) DOMATORE: capace di addomesticare un animale e parlare con gli animali
+                            5) LADRO: capace di rubare
                             ...
                             """);
                 }
@@ -79,9 +81,53 @@ public abstract class Avventuriero {
                     party.add(new Mago(nome, razza, sesso, eta));
                 } else if (scelta == 3) {
                     party.add(new Druido(nome, razza, sesso, eta));
+                } else if (scelta == 4) {
+                    party.add(new Domatore(nome, razza, sesso, eta));
+                } else if (scelta == 5) {
+                    party.add(new Ladro(nome, razza, sesso, eta));
                 }
             } while (scelta < 1 || scelta > 4);
+            tastiera.nextLine();
         }
-        tastiera.nextLine();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRazza() {
+        return razza;
+    }
+
+    public void setRazza(String razza) {
+        this.razza = razza;
+    }
+
+    public char getSesso() {
+        return sesso;
+    }
+
+    public void setSesso(char sesso) {
+        this.sesso = sesso;
+    }
+
+    public int getEta() {
+        return eta;
+    }
+
+    public void setEta(int eta) {
+        this.eta = eta;
+    }
+
+    public double getDanno() {
+        return danno;
+    }
+
+    public void setDanno(double danno) {
+        this.danno = danno;
     }
 }

@@ -1,4 +1,4 @@
-package umani;
+package avventura.umani;
 
 public class Druido extends Avventuriero {
     double forzaCura = 5;
