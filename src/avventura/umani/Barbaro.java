@@ -1,11 +1,11 @@
 package avventura.umani;
 
 public class Barbaro extends Avventuriero{
-    double danno;
+    int danno;
 
     public Barbaro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
-        this.danno = 3;
+        super.danno = 3;
     }
 
     public Barbaro(String nome, String razza) {
@@ -21,8 +21,9 @@ public class Barbaro extends Avventuriero{
     public Barbaro() {
     }
 
-    public void Attacco(){
-        // senza modificatori
+    public double Attacco(){
+        System.out.println(nome + " ha attaccato. Danno: "+ danno);
+        return danno;
     }
 
     @Override

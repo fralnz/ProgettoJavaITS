@@ -7,7 +7,7 @@ public abstract class Avventuriero {
     String nome, razza;
     char sesso;
     int eta;
-    double danno;
+    int danno;
 
     public Avventuriero(String nome, String razza, char sesso, int eta) {
         this.nome = nome;
@@ -123,11 +123,11 @@ public abstract class Avventuriero {
         this.eta = eta;
     }
 
-    public double getDanno() {
+    public int getDanno() {
         return danno;
     }
 
-    public void setDanno(double danno) {
+    public void setDanno(int danno) {
         this.danno = danno;
     }
 }

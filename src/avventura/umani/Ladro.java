@@ -1,5 +1,7 @@
 package avventura.umani;
 
+import java.util.Random;
+
 public class Ladro extends Avventuriero{
     public Ladro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
@@ -14,6 +16,13 @@ public class Ladro extends Avventuriero{
     }
 
     public Ladro() {
+    }
+    public double Attacco(){
+        Random rand = new Random();
+        int numAttacchi = rand.nextInt(7)+1;
+        double attacco = danno*numAttacchi;
+        System.out.println(nome + " ha attaccato "+numAttacchi+" volte. Danno: "+ attacco);
+        return attacco;
     }
 
     @Override

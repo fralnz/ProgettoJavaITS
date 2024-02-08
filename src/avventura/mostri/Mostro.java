@@ -1,14 +1,16 @@
 package avventura.mostri;
 
-public abstract class Mostro {
+import java.util.Random;
+
+public class Mostro {
     String nome;
-    int vita;
     int danno;
 
-    public Mostro(String nome, int vita, int danno) {
-        this.nome = nome;
-        this.vita = vita;
-        this.danno = danno;
+    public Mostro(int livello) {
+        Random rand=new Random();
+        String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A"};
+        this.nome = iconeMostri[rand.nextInt(iconeMostri.length)];
+        this.danno = rand.nextInt(3)+1+livello;
     }
 
     public String getNome() {
@@ -19,19 +21,16 @@ public abstract class Mostro {
         this.nome = nome;
     }
 
-    public int getVita() {
-        return vita;
-    }
-
-    public void setVita(int vita) {
-        this.vita = vita;
-    }
-
     public int getDanno() {
         return danno;
     }
 
     public void setDanno(int danno) {
         this.danno = danno;
+    }
+
+    @Override
+    public String toString() {
+        return  nome + '\n' + "danno=" + danno + '\n';
     }
 }
