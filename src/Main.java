@@ -1,4 +1,6 @@
+import avventura.mondo.Combattimento;
 import avventura.mondo.Giorno;
+import avventura.mostri.Mostro;
 import avventura.umani.*;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         // inizializzo le variabili
         int giorno = 1;  //inizializzo i giorni
-        int membriParty = 1;
+        int membriParty = 3;
         Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
         ArrayList<Avventuriero> party = new ArrayList<Avventuriero>();
         // messaggio di benvenuto
@@ -28,7 +30,9 @@ public class Main {
             viaggio.GeneraEvento();
             System.out.println("Premi invio per continuare...");
             tastiera.nextLine();
-            viaggio.GeneraCombattimento();
+            ArrayList<Mostro> nemici = Combattimento.generaNemici(viaggio.getNumGiorno());
+            System.out.println(nemici);
+            Combattimento.displayCombattimento(nemici, party);
             viaggio.avanzaGiorno();
             System.out.println("Premi invio per continuare...");
             tastiera.nextLine();

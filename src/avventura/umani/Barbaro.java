@@ -6,6 +6,7 @@ public class Barbaro extends Avventuriero{
     public Barbaro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.danno = 3;
+        super.icona = "\uD83E\uDE93";
     }
 
     public Barbaro(String nome, String razza) {

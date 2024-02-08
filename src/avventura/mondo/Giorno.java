@@ -25,7 +25,7 @@ public class Giorno {
             Avventuriero membro = party.get(idxMembro);
             System.out.println(party.get(idxMembro).getNome()+" può equipaggiarlo.");
             System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ membro.getNome() + ": "+ membro.getDanno());
-            String scelta = tastiera.next();
+            String scelta = tastiera.nextLine();
             if (scelta.equalsIgnoreCase("s")){
                 membro.setDanno(danno);
             }else System.out.println("Non equipaggiato.");
@@ -51,16 +51,6 @@ public class Giorno {
             System.out.println("Hai trovato una spada! (danno: " + danno + ")");
             EquipWeapon("Barbaro", danno);
         }
-    }
-    public void GeneraCombattimento(){
-        Random rand = new Random();
-        int numNemici = rand.nextInt(3)+1;
-        ArrayList<Mostro> nemici = new ArrayList<>(3);
-        for (int i=0; i<numNemici; i++){
-            // Ripempio l'arraylist di mostri casuali
-            nemici.add(new Mostro(numGiorno));
-        }
-        System.out.println(nemici);
     }
     public Giorno(ArrayList<Avventuriero> party) {
         this.numGiorno = 1;

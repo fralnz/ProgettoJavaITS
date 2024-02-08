@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Avventuriero {
-    String nome, razza;
+    String nome, razza, icona;
     char sesso;
     int eta;
     int danno;
@@ -129,5 +129,13 @@ public abstract class Avventuriero {
 
     public void setDanno(int danno) {
         this.danno = danno;
+    }
+
+    public String getIcona() {
+        return icona;
+    }
+
+    public void setIcona(String icona) {
+        this.icona = icona;
     }
 }
