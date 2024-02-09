@@ -1,5 +1,5 @@
+import avventura.mondo.Mostro;
 import avventura.mondo.*;
-import avventura.mostri.*;
 import avventura.umani.*;
 
 import java.util.ArrayList;
@@ -30,11 +30,10 @@ public class Main {
             viaggio.GeneraEvento();
             System.out.println("Premi invio per continuare...");
             tastiera.nextLine();
-            ArrayList<Mostro> nemici = Combattimento.generaNemici(viaggio.getNumGiorno());
+            ArrayList<Mostro> nemici = Combattimento.generaNemici(viaggio.getLivello());
             System.out.println(nemici);
             Combattimento.inizaCombattimento(party, nemici);
-            Combattimento.displayCombattimento(nemici, party);
-            viaggio.avanzaGiorno();
+            viaggio.avanzaLivello();
             System.out.println("Premi invio per continuare...");
             tastiera.nextLine();
         }

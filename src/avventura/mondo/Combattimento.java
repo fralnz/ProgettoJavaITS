@@ -1,6 +1,5 @@
 package avventura.mondo;
 
-import avventura.mostri.Mostro;
 import avventura.umani.Avventuriero;
 
 import java.util.ArrayList;
@@ -9,13 +8,13 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Combattimento {
-    public static ArrayList<Mostro> generaNemici(int numGiorno){
+    public static ArrayList<Mostro> generaNemici(int livello){
         Random rand = new Random();
         int numNemici = rand.nextInt(3)+1;
         ArrayList<Mostro> nemici = new ArrayList<>(3);
         for (int i=0; i<numNemici; i++){
             // Ripempio l'arraylist di mostri casuali
-            nemici.add(new Mostro(numGiorno));
+            nemici.add(new Mostro(livello));
         }
         return nemici;
     }
@@ -35,7 +34,7 @@ public class Combattimento {
             dannoNemici += mostro.getDanno();
             System.out.println(mostro.getIcona() + " attacca! Danno: " + mostro.getDanno());
             // se nel party è presente un domatore, prova a domesticare il mostro
-            if (idxDomatore != -1){
+            if (idxDomatore != -1 && mostro.getIcona().equals("\uD83D\uDC3A")){
                 System.out.println(party.get(idxDomatore).getNome()+" può addomesticarlo.Vuoi addomesticarlo? (s/N)");
                 System.out.print("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
                 String scelta = tastiera.nextLine();
@@ -49,26 +48,31 @@ public class Combattimento {
             TimeUnit.SECONDS.sleep(1);
         }
         System.out.println("TURNO DEGLI AVVENTURIERI");
+        ArrayList<Integer> attacchiParty = new ArrayList<>();
         for (Avventuriero membro : party) {
-            if (membro.attacco() >= 0){
-                dannoParty += membro.attacco();
-                System.out.println(membro.getNome() + " attacca! Danno: " + membro.attacco());
+            int dannoMembro = membro.attacco();
+            attacchiParty.add(dannoMembro);
+            if (dannoMembro >= 0){
+                dannoParty += dannoMembro;
+                System.out.println(membro.getNome() + " attacca! Danno: " + dannoMembro);
             } else {
                 dannoCurato -= membro.attacco();
                 System.out.println(membro.getNome() + " cura! Danno curato: " + membro.attacco()*(-1));
             }
             TimeUnit.SECONDS.sleep(1);
         }
+        displayCombattimento(nemici, party, attacchiParty);
         System.out.print("Danno mostri: "+dannoNemici);
         if (dannoCurato > 0) System.out.print(" - "+dannoCurato);
-        System.out.print("\nDanno party: "+dannoParty);
+        System.out.println("\nDanno party: "+dannoParty);
         if (dannoParty > (dannoNemici-dannoCurato)){
             System.out.println("Hai vinto!");
         }else {
-            System.out.println("Hai perso!\nGAME OVER");
+            System.out.println("Hai perso!\n---GAME OVER---");
+            System.exit(0);
         }
     }
-    public static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party) {
+    public static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party, ArrayList<Integer> attacchiParty) {
         int numNemici = nemici.size();
         int numAvventurieri = party.size();
 
@@ -100,12 +104,12 @@ public class Combattimento {
         // Stampa il danno degli avventurieri sopra le loro icone
         for (int i = 0; i < numAvventurieri; i++) {
             System.out.print("    ");
-            if (party.get(i).attacco() > 0){
-                System.out.print(party.get(i).attacco());
+            if (attacchiParty.get(i) > 0){
+                System.out.print(attacchiParty.get(i));
             }else {
                 System.out.print('0');
             }
-            if (party.get(i).attacco() < 10) System.out.print(' ');
+            if (attacchiParty.get(i) < 10) System.out.print(' ');
         }
         System.out.println();
 

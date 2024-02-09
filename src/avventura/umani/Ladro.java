@@ -2,6 +2,7 @@ package avventura.umani;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Ladro extends Avventuriero{
     int danno = 1;
@@ -30,10 +31,9 @@ public class Ladro extends Avventuriero{
     }
 
     public int attacco(){
-        Random rand = new Random();
-        int numAttacchi = rand.nextInt(3)+1;
-        System.out.println(nome + " ha attaccato "+numAttacchi+" volte.");
-        return danno*numAttacchi;
+        int numAttacchi = ThreadLocalRandom.current().nextInt(0, 4);
+        System.out.println(nome + " ha attaccato " + numAttacchi + " volte.");
+        return (getDanno() * numAttacchi);
     }
 
     @Override

@@ -7,8 +7,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Giorno {
-    int numGiorno, livello;
-    String evento;
+    int livello;
     ArrayList<Avventuriero> party;
 
     private int checkClass(String classe){
@@ -59,7 +58,7 @@ public class Giorno {
      */
 
     public void GeneraEvento(){
-        String classe = "";
+        String classe;
         int amount = 0;
         Random rand = new Random();
         int nEvento = ThreadLocalRandom.current().nextInt(0, 4);
@@ -79,7 +78,6 @@ public class Giorno {
             int danno = rand.nextInt(10)+3;
             System.out.println("ERRORE!");
             classe = "Err";
-            amount = 0;
         }
         try{
             party.get(checkClass(classe)).equip(amount);
@@ -88,31 +86,32 @@ public class Giorno {
         }
     }
     public Giorno(ArrayList<Avventuriero> party) {
-        this.numGiorno = 1;
+        this.livello = 1;
         this.livello = 1;
         this.party = party;
     }
 
-    public int getNumGiorno() {
-        return numGiorno;
+    public int getLivello() {
+        return livello;
     }
 
-    public void setNumGiorno(int numGiorno) {
-        this.numGiorno = numGiorno;
+    public void setLivello(int livello) {
+        this.livello = livello;
     }
-    public void avanzaGiorno(){
-        this.numGiorno++;
+
+    public void avanzaLivello(){
+        setLivello(getLivello()+1);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Giorno giorno)) return false;
-        return numGiorno == giorno.numGiorno && livello == giorno.livello && Objects.equals(evento, giorno.evento) && Objects.equals(party, giorno.party);
+        return Objects.equals(party, giorno.party);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numGiorno, livello, evento, party);
+        return Objects.hash(livello, livello, party);
     }
 }

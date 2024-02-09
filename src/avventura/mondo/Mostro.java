@@ -1,4 +1,4 @@
-package avventura.mostri;
+package avventura.mondo;
 
 import java.util.Random;
 
@@ -8,7 +8,7 @@ public class Mostro {
 
     public Mostro(int livello) {
         Random rand=new Random();
-        String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A", "\uD83E\uDDDF"};
+        String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A", "\uD83E\uDDDF", "\uD83D\uDC3A"};
         this.icona = iconeMostri[rand.nextInt(iconeMostri.length)];
         this.danno = rand.nextInt(3+livello)+1;
     }

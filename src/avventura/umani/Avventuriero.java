@@ -87,7 +87,7 @@ public abstract class Avventuriero implements Personaggio{
                 } else if (scelta == 5) {
                     party.add(new Ladro(nome, razza, sesso, eta));
                 }
-            } while (scelta < 1 || scelta > 4);
+            } while (scelta < 1 || scelta > 5);
             tastiera.nextLine();
         }
     }
