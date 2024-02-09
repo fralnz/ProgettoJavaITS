@@ -3,7 +3,7 @@ package avventura.umani;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Avventuriero {
+public abstract class Avventuriero implements Personaggio{
     String nome, razza, icona;
     char sesso;
     int eta;

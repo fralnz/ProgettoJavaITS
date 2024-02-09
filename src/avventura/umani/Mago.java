@@ -1,9 +1,9 @@
 package avventura.umani;
 
 public class Mago extends Avventuriero{
-    String icona = icona = "\uD83E\uDE84";
     public Mago(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
+        super.icona = "\uD83E\uDE84";
     }
 
     public Mago(String nome, String razza, int eta) {
@@ -17,5 +17,10 @@ public class Mago extends Avventuriero{
                 ", sesso=" + sesso +
                 ", eta=" + eta +
                 '}';
+    }
+
+    @Override
+    public void Attacco() {
+
     }
 }

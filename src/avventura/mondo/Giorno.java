@@ -60,7 +60,7 @@ public class Giorno {
         Random rand = new Random();
         int nEvento = rand.nextInt(4);
         if (nEvento == 0){
-            int danno = rand.nextInt(10)+3;
+            int danno = rand.nextInt(10)+livello;
             System.out.println("Hai trovato un'ascia! (danno: " + danno + ")");
             equipWeapon("Barbaro", danno);
         } else if (nEvento == 1) {

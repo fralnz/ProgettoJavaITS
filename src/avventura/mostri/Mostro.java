@@ -3,22 +3,22 @@ package avventura.mostri;
 import java.util.Random;
 
 public class Mostro {
-    String nome;
+    String icona;
     int danno;
 
     public Mostro(int livello) {
         Random rand=new Random();
-        String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A"};
-        this.nome = iconeMostri[rand.nextInt(iconeMostri.length)];
-        this.danno = rand.nextInt(3)+1+livello;
+        String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A", "\uD83E\uDDDF"};
+        this.icona = iconeMostri[rand.nextInt(iconeMostri.length)];
+        this.danno = rand.nextInt(3+livello)+1;
     }
 
-    public String getNome() {
-        return nome;
+    public String getIcona() {
+        return icona;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIcona(String icona) {
+        this.icona = icona;
     }
 
     public int getDanno() {
@@ -31,6 +31,6 @@ public class Mostro {
 
     @Override
     public String toString() {
-        return  nome + '\n' + "danno=" + danno + '\n';
+        return  icona + '\n' + "danno=" + danno + '\n';
     }
 }

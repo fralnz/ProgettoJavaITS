@@ -23,9 +23,8 @@ public class Barbaro extends Avventuriero{
     public Barbaro() {
     }
 
-    public double Attacco(){
+    public void Attacco(){
         System.out.println(nome + " ha attaccato. Danno: "+ danno);
-        return danno;
     }
 
     @Override

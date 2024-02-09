@@ -24,7 +24,7 @@ public class Combattimento {
         // Stampa il nome dei mostri o spazi vuoti se non ci sono abbastanza mostri
         for (int i = 0; i < numAvventurieri; i++) {
             if (i < numNemici) {
-                System.out.print("----" + nemici.get(i).getNome());
+                System.out.print("----" + nemici.get(i).getIcona());
             } else {
                 System.out.print("----");
             }

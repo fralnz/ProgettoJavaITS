@@ -3,6 +3,7 @@ package avventura.umani;
 public class Domatore extends Avventuriero{
     public Domatore(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
+        super.icona = "\uD83E\uDE88";
     }
 
     public Domatore(String nome, String razza) {
@@ -24,5 +25,10 @@ public class Domatore extends Avventuriero{
                 ", sesso=" + sesso +
                 ", eta=" + eta +
                 '}';
+    }
+
+    @Override
+    public void Attacco() {
+
     }
 }
