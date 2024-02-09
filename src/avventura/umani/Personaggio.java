@@ -1,5 +1,6 @@
 package avventura.umani;
 
 public interface Personaggio {
-    public void Attacco();
+    public int attacco();
+    public void equip(int amount);
 }

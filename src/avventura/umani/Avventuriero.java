@@ -7,8 +7,6 @@ public abstract class Avventuriero implements Personaggio{
     String nome, razza, icona;
     char sesso;
     int eta;
-    int danno;
-
     public Avventuriero(String nome, String razza, char sesso, int eta) {
         this.nome = nome;
         this.razza = razza;
@@ -36,8 +34,11 @@ public abstract class Avventuriero implements Personaggio{
     public static void partyInit(ArrayList<Avventuriero> party, int membriParty) {
         Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
         for (int i = 0; i < membriParty; i++) {
+            String nome;
             System.out.print("Inserisci il nome: ");
-            String nome = tastiera.nextLine();
+            do {
+                nome = tastiera.nextLine();
+            }while(nome.isEmpty());
             System.out.print("Inserisci la razza: ");
             String razza = tastiera.nextLine();
             System.out.print("""
@@ -121,14 +122,6 @@ public abstract class Avventuriero implements Personaggio{
 
     public void setEta(int eta) {
         this.eta = eta;
-    }
-
-    public int getDanno() {
-        return danno;
-    }
-
-    public void setDanno(int danno) {
-        this.danno = danno;
     }
 
     public String getIcona() {

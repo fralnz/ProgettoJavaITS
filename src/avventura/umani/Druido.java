@@ -1,5 +1,7 @@
 package avventura.umani;
 
+import java.util.Scanner;
+
 public class Druido extends Avventuriero {
     int forzaCura;
     public Druido(String nome, String razza, char sesso, int eta) {
@@ -41,7 +43,19 @@ public class Druido extends Avventuriero {
     }
 
     @Override
-    public void Attacco() {
+    public int attacco() {
+        return getForzaCura()*(-1);
+    }
 
+    @Override
+    public void equip(int amount) {
+        Scanner tastiera = new Scanner(System.in);
+        System.out.println("Hai trovato una ricetta! (danno nemico: -" + amount + ")");
+        System.out.println(getNome()+" può imparalo.");
+        System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ getNome() + ": "+ getForzaCura());
+        String scelta = tastiera.nextLine();
+        if (scelta.equalsIgnoreCase("s")){
+            setForzaCura(amount);
+        }else System.out.println("Non imparato.");
     }
 }
