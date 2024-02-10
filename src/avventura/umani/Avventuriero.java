@@ -2,6 +2,7 @@ package avventura.umani;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Avventuriero implements Personaggio{
     String nome, razza, icona;
@@ -53,7 +54,7 @@ public abstract class Avventuriero implements Personaggio{
             // controllo che il carattere inserito sia accettato
             System.out.print("Inserisci l'eta (facoltativo): ");
             int eta = tastiera.nextInt();      // da implementare la gesitione delle eccezioni per renderla effettivamente facoltativa
-            int scelta = 0;
+            int scelta;
             do {
                 System.out.print("""
                         Inserisci la classe:
@@ -89,6 +90,25 @@ public abstract class Avventuriero implements Personaggio{
                 }
             } while (scelta < 1 || scelta > 5);
             tastiera.nextLine();
+        }
+    }
+
+    public static void randomParty(ArrayList<Avventuriero> party, int membriParty){
+        if (membriParty<1 || membriParty>5){
+            throw new RuntimeException("Numero di membri non valido! (1 <= membriParty <= 5)");
+        }
+        // genero un arraylist di avventurieri casuali
+        ArrayList<Avventuriero> avventurieriCasuali = new ArrayList<>();
+        avventurieriCasuali.add(new Mago("Pablo", "Elfo", 'M', 107));
+        avventurieriCasuali.add(new Ladro("Erika", "Umano", 'F', 32));
+        avventurieriCasuali.add(new Barbaro("Enrico", "Orco", 'M', 48));
+        avventurieriCasuali.add(new Domatore("Andrea", "Umano", 'X', 19));
+        avventurieriCasuali.add(new Druido("Peter", "Gnomo", 'F', 85));
+        // scelgo a caso avventurieri da avventurieriCasuali e li metto in party
+        for (int i = 0; i < membriParty; i++){
+            int randomNum = ThreadLocalRandom.current().nextInt(0, avventurieriCasuali.size());
+            party.add(avventurieriCasuali.get(randomNum));
+            avventurieriCasuali.remove(avventurieriCasuali.get(randomNum));
         }
     }
 

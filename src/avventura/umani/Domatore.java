@@ -1,7 +1,7 @@
 package avventura.umani;
 
 public class Domatore extends Avventuriero{
-    int danno = 0;
+    int danno = 2;
     public Domatore(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.icona = "\uD83E\uDE88";

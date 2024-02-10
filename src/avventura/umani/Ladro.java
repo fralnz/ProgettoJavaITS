@@ -38,7 +38,6 @@ public class Ladro extends Avventuriero{
 
     @Override
     public void equip(int amount) {
-        System.out.println("Hai trovato un coltello! (danno: " + amount + ")");
         Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può equipaggiarlo.");
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());

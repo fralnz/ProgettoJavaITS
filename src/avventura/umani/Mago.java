@@ -35,7 +35,6 @@ public class Mago extends Avventuriero{
     }
     @Override
     public void equip(int amount) {
-        System.out.println("Hai trovato una pergamena! (danno: +" + amount + ")");
         System.out.println(getNome()+" può impararlo.");
         setDanno(getDanno()+amount);
         System.out.println(getNome() + " ha imparato un nuovo incantesimo. Il suo potere totale ora è " + getDanno());

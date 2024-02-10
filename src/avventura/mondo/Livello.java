@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Giorno {
+public class Livello {
     int livello;
     ArrayList<Avventuriero> party;
 
@@ -58,34 +58,39 @@ public class Giorno {
      */
 
     public void GeneraEvento(){
-        String classe;
+        String classe, arma;
         int amount = 0;
         Random rand = new Random();
         int nEvento = ThreadLocalRandom.current().nextInt(0, 4);
         if (nEvento == 0){
             classe = "Barbaro";
+            arma = "ascia";
             amount = rand.nextInt(10)+livello;
         } else if (nEvento == 1) {
             classe = "Ladro";
+            arma = "coltello";
             amount = rand.nextInt(7)+1;
         } else if (nEvento == 2) {
             classe = "Mago";
+            arma = "pergamena";
             amount = rand.nextInt(5) + 1;
         } else if (nEvento == 3) {
             classe = "Druido";
+            arma = "ricetta";
             amount = rand.nextInt(5) + 1;
         } else {
-            int danno = rand.nextInt(10)+3;
             System.out.println("ERRORE!");
             classe = "Err";
+            arma = "Err";
         }
+        System.out.println("Hai trovato una "+arma+"! (potenza: +" + amount + ")");
         try{
             party.get(checkClass(classe)).equip(amount);
         } catch (IndexOutOfBoundsException e){
             System.out.println("Nessun membro del tuo party può usarlo.");
         }
     }
-    public Giorno(ArrayList<Avventuriero> party) {
+    public Livello(ArrayList<Avventuriero> party) {
         this.livello = 1;
         this.livello = 1;
         this.party = party;
@@ -106,7 +111,7 @@ public class Giorno {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Giorno giorno)) return false;
+        if (!(o instanceof Livello giorno)) return false;
         return Objects.equals(party, giorno.party);
     }
 

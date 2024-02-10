@@ -50,7 +50,6 @@ public class Druido extends Avventuriero {
     @Override
     public void equip(int amount) {
         Scanner tastiera = new Scanner(System.in);
-        System.out.println("Hai trovato una ricetta! (danno nemico: -" + amount + ")");
         System.out.println(getNome()+" può imparalo.");
         System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ getNome() + ": "+ getForzaCura());
         String scelta = tastiera.nextLine();

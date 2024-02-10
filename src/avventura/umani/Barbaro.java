@@ -38,7 +38,6 @@ public class Barbaro extends Avventuriero{
     @Override
     public void equip(int amount) {
         Scanner tastiera = new Scanner(System.in);
-        System.out.println("Hai trovato un'ascia! (danno: " + amount + ")");
         System.out.println(getNome()+" può equipaggiarlo.");
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());
         String scelta = tastiera.nextLine();
