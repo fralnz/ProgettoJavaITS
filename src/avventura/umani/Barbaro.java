@@ -3,12 +3,13 @@ package avventura.umani;
 import java.util.Scanner;
 
 public class Barbaro extends Avventuriero{
-    int danno = 3;
+    int danno;
     String icona = icona = "\uD83E\uDE93";
 
     public Barbaro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.icona = "\uD83E\uDE93";
+        this.danno = 1;
     }
 
     public Barbaro(String nome, String razza) {
@@ -42,18 +43,8 @@ public class Barbaro extends Avventuriero{
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());
         String scelta = tastiera.nextLine();
         if (scelta.equalsIgnoreCase("s")){
-            setDanno(danno);
+            setDanno(amount);
             System.out.println("Equipaggiato.");
         }else System.out.println("Non equipaggiato.");
-    }
-
-    @Override
-    public String toString() {
-        return "Barbaro{" +
-                "nome='" + nome + '\'' +
-                ", razza='" + razza + '\'' +
-                ", sesso=" + sesso +
-                ", eta=" + eta +
-                '}';
     }
 }

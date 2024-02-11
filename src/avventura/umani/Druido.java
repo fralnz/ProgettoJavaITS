@@ -33,16 +33,6 @@ public class Druido extends Avventuriero {
     }
 
     @Override
-    public String toString() {
-        return "Druido{" +
-                "nome='" + nome + '\'' +
-                ", razza='" + razza + '\'' +
-                ", sesso=" + sesso +
-                ", eta=" + eta +
-                '}';
-    }
-
-    @Override
     public int attacco() {
         return getForzaCura()*(-1);
     }

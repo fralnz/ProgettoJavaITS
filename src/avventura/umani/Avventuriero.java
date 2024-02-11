@@ -151,4 +151,11 @@ public abstract class Avventuriero implements Personaggio{
     public void setIcona(String icona) {
         this.icona = icona;
     }
+
+    @Override
+    public String toString() {
+        return  icona + nome + "(" +
+                razza + ", " + sesso +
+                ", " + eta + " anni, )";
+    }
 }

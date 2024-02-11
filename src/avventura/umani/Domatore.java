@@ -1,10 +1,11 @@
 package avventura.umani;
 
 public class Domatore extends Avventuriero{
-    int danno = 2;
+    int danno;
     public Domatore(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.icona = "\uD83E\uDE88";
+        this.danno = 2;
     }
 
     public Domatore(String nome, String razza) {
@@ -26,22 +27,10 @@ public class Domatore extends Avventuriero{
         this.danno = danno;
     }
 
-    @Override
-    public String toString() {
-        return "Domatore{" +
-                "nome='" + nome + '\'' +
-                ", razza='" + razza + '\'' +
-                ", sesso=" + sesso +
-                ", eta=" + eta +
-                '}';
-    }
-
-    @Override
     public int attacco() {
         return getDanno();
     }
 
-    @Override
     public void equip(int amount) {
         setDanno(amount);
         System.out.println("Addomesticato.");

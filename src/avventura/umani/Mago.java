@@ -1,10 +1,11 @@
 package avventura.umani;
 
 public class Mago extends Avventuriero{
-    int danno = 3;
+    int danno;
     public Mago(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.icona = "\uD83E\uDE84";
+        this.danno = 3;
     }
 
     public Mago(String nome, String razza, int eta) {
@@ -17,16 +18,6 @@ public class Mago extends Avventuriero{
 
     public void setDanno(int danno) {
         this.danno = danno;
-    }
-
-    @Override
-    public String toString() {
-        return "Mago{" +
-                ", nome='" + nome + '\'' +
-                ", razza='" + razza + '\'' +
-                ", sesso=" + sesso +
-                ", eta=" + eta +
-                '}';
     }
 
     @Override

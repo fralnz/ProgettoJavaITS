@@ -5,10 +5,11 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Ladro extends Avventuriero{
-    int danno = 1;
+    int danno;
     public Ladro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.icona = "\uD83D\uDDE1\uFE0F";
+        this.danno = 1;
     }
 
     public Ladro(String nome, String razza) {
@@ -31,29 +32,19 @@ public class Ladro extends Avventuriero{
     }
 
     public int attacco(){
-        int numAttacchi = ThreadLocalRandom.current().nextInt(0, 4);
+        int numAttacchi = ThreadLocalRandom.current().nextInt(1, 4);
         System.out.println(nome + " ha attaccato " + numAttacchi + " volte.");
         return (getDanno() * numAttacchi);
     }
 
-    @Override
     public void equip(int amount) {
         Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può equipaggiarlo.");
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());
         String scelta = tastiera.nextLine();
         if (scelta.equalsIgnoreCase("s")){
-            setDanno(danno);
+            setDanno(amount);
+            System.out.println("Equipaggiato.");
         }else System.out.println("Non equipaggiato.");
-    }
-
-    @Override
-    public String toString() {
-        return "Ladro{" +
-                "nome='" + nome + '\'' +
-                ", razza='" + razza + '\'' +
-                ", sesso=" + sesso +
-                ", eta=" + eta +
-                '}';
     }
 }

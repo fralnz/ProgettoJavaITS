@@ -17,46 +17,6 @@ public class Livello {
         return -1;
     }
 
-    /*
-    private void equipWeapon(String classe, int danno){
-        Scanner tastiera = new Scanner(System.in);
-        int idxMembro = checkClass(classe);
-        if (idxMembro >= 0){
-            Avventuriero membro = party.get(idxMembro);
-            System.out.println(party.get(idxMembro).getNome()+" può equipaggiarlo.");
-            System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ membro.getNome() + ": "+ membro.getDanno());
-            String scelta = tastiera.nextLine();
-            if (scelta.equalsIgnoreCase("s")){
-                membro.setDanno(danno);
-            }else System.out.println("Non equipaggiato.");
-        } else System.out.println("Nessun membro del tuo party può usarlo.");
-    }
-
-    private void addSpell(String classe, int danno){
-        int idxMembro = checkClass(classe);
-        if (idxMembro >= 0){
-            Mago membro = (Mago) party.get(idxMembro);
-            System.out.println(party.get(idxMembro).getNome()+" può impararlo.");
-            membro.setDanno(membro.getDanno()+danno);
-            System.out.println(membro.getNome() + " ha imparato un nuovo incantesimo. Il suo potere totale ora è " + membro.getDanno());
-        } else System.out.println("Nessun membro del tuo party può usarlo.");
-    }
-
-    private void equipRecipe(String classe, int danno){
-        Scanner tastiera = new Scanner(System.in);
-        int idxMembro = checkClass(classe);
-        if (idxMembro >= 0){
-            Druido membro = (Druido) party.get(idxMembro);
-            System.out.println(party.get(idxMembro).getNome()+" può imparalo.");
-            System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ membro.getNome() + ": "+ membro.getForzaCura());
-            String scelta = tastiera.nextLine();
-            if (scelta.equalsIgnoreCase("s")){
-                membro.setForzaCura(danno);
-            }else System.out.println("Non imparato.");
-        } else System.out.println("Nessun membro del tuo party può usarlo.");
-    }
-     */
-
     public void GeneraEvento(){
         String classe, arma;
         int amount = 0;
@@ -83,7 +43,7 @@ public class Livello {
             classe = "Err";
             arma = "Err";
         }
-        System.out.println("Hai trovato una "+arma+"! (potenza: +" + amount + ")");
+        System.out.println("Hai trovato un "+arma+"! (potenza: +" + amount + ")");
         try{
             party.get(checkClass(classe)).equip(amount);
         } catch (IndexOutOfBoundsException e){
