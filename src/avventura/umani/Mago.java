@@ -1,10 +1,10 @@
 package avventura.umani;
 
 public class Mago extends Avventuriero{
-    int danno;
+    private int danno;
     public Mago(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
-        super.icona = "\uD83E\uDE84";
+        super.setIcona("\uD83E\uDE84");
         this.danno = 3;
     }
 

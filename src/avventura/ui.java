@@ -1,5 +1,6 @@
 package avventura;
 
+import avventura.mondo.Mostro;
 import avventura.umani.Avventuriero;
 
 import java.util.ArrayList;
@@ -11,11 +12,11 @@ public class ui {
     public static void stampaMessaggioIniziale(){
         System.out.print("""
                 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-                ┃        Benvenuto!        ┃
+                ┃        \u001B[1mBenvenuto!\u001B[0m        ┃
                 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-                ┃0. Istruzioni             ┃
-                ┃1. Partita personalizzata ┃
-                ┃2. Partita casuale        ┃
+                ┃\u001B[33m0\u001B[0m. Istruzioni             ┃
+                ┃\u001B[33m1\u001B[0m. Partita personalizzata ┃
+                ┃\u001B[33m2\u001B[0m. Partita casuale        ┃
                 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                 """);
     }
@@ -35,12 +36,27 @@ public class ui {
                 """);
     }
     public static void stampaParty(ArrayList<Avventuriero> party){
-        System.out.println("━━━━━━━━━━━━━━━━");
+        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("IL TUO PARTY:");
         for (Avventuriero membro : party){
             System.out.println(membro);
         }
-        System.out.println("━━━━━━━━━━━━━━━━");
+        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
     }
-
+    public static void stampaNemici(ArrayList<Mostro> nemici){
+        System.out.println("Hai incontrato dei nemici!");
+        String out = "";
+        for (Mostro mostro : nemici){
+            out += mostro.getIcona() + ", ";
+        }
+        System.out.println(out.substring(0, out.length()-2));
+    }
+    public static void stampaVittoria(ArrayList<Avventuriero> party){
+        System.out.println("""
+                \u001B[1m---HAI VINTO!---\u001B[0m
+                Congratulazioni! La tua squadra di avventurieri è riuscita a superare 10 livelli!
+                Ecco i valorosi eroi:
+                """);
+        stampaParty(party);
+    }
 }

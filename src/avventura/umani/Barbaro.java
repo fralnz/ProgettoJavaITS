@@ -3,12 +3,11 @@ package avventura.umani;
 import java.util.Scanner;
 
 public class Barbaro extends Avventuriero{
-    int danno;
-    String icona = icona = "\uD83E\uDE93";
+    private int danno;
 
     public Barbaro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
-        super.icona = "\uD83E\uDE93";
+        super.setIcona("\uD83E\uDE93");
         this.danno = 1;
     }
 
@@ -19,9 +18,6 @@ public class Barbaro extends Avventuriero{
     public Barbaro(String nome, String razza, int eta) {
         super(nome, razza, eta);
         this.danno = 3;
-    }
-
-    public Barbaro() {
     }
 
     public int getDanno() {

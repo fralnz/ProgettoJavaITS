@@ -5,9 +5,9 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Avventuriero implements Personaggio{
-    String nome, razza, icona;
-    char sesso;
-    int eta;
+    private String nome, razza, icona;
+    private char sesso;
+    private int eta;
     public Avventuriero(String nome, String razza, char sesso, int eta) {
         this.nome = nome;
         this.razza = razza;
@@ -156,6 +156,6 @@ public abstract class Avventuriero implements Personaggio{
     public String toString() {
         return  icona + nome + "(" +
                 razza + ", " + sesso +
-                ", " + eta + " anni, )";
+                ", " + eta + " anni)";
     }
 }

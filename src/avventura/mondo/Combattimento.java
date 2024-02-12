@@ -18,7 +18,7 @@ public class Combattimento {
         }
         return nemici;
     }
-    public static void inizaCombattimento(ArrayList<Avventuriero> party, ArrayList<Mostro> nemici) throws InterruptedException {
+    public static boolean inizaCombattimento(ArrayList<Avventuriero> party, ArrayList<Mostro> nemici) throws InterruptedException {
         // Metti gli attacchi qua
         Scanner tastiera = new Scanner(System.in);
         int dannoNemici = 0;
@@ -36,11 +36,12 @@ public class Combattimento {
             // se nel party è presente un domatore, prova a domesticare il mostro
             if (idxDomatore != -1 && mostro.getIcona().equals("\uD83D\uDC3A")){
                 System.out.println(party.get(idxDomatore).getNome()+" può addomesticarlo.Vuoi addomesticarlo? (s/N)");
-                System.out.print("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
+                System.out.println("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
                 String scelta = tastiera.nextLine();
                 if (scelta.equalsIgnoreCase("s")) {
                     party.get(idxDomatore).equip(mostro.getDanno());
                     dannoNemici -= mostro.getDanno();
+                    mostro.setDanno(0);
                 } else {
                     System.out.println("Non addomesticato.");
                 }
@@ -62,15 +63,16 @@ public class Combattimento {
             TimeUnit.SECONDS.sleep(1);
         }
         displayCombattimento(nemici, party, attacchiParty);
-        System.out.print("Danno mostri: "+dannoNemici);
-        if (dannoCurato > 0) System.out.print(" - "+dannoCurato);
+        System.out.print("Danno mostri: \u001B[31m"+dannoNemici+"\u001B[0m");
+        if (dannoCurato > 0) System.out.print(" - \u001B[32m"+dannoCurato+"\u001B[0m");
         System.out.println("\nDanno party: "+dannoParty);
         if (dannoParty > (dannoNemici-dannoCurato)){
             System.out.println("Hai vinto!");
         }else {
             System.out.println("Hai perso!\n---GAME OVER---");
-            System.exit(0);
+            return false;
         }
+        return true;
     }
     public static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party, ArrayList<Integer> attacchiParty) {
         int numNemici = nemici.size();
@@ -107,7 +109,7 @@ public class Combattimento {
             if (attacchiParty.get(i) > 0){
                 System.out.print(attacchiParty.get(i));
             }else {
-                System.out.print('0');
+                System.out.print("\u001B[32m"+(attacchiParty.get(i)*-1)+"\u001B[0m");
             }
             if (attacchiParty.get(i) < 10) System.out.print(' ');
         }

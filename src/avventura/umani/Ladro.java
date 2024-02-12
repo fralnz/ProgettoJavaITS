@@ -5,10 +5,11 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Ladro extends Avventuriero{
-    int danno;
+    private int danno;
+    private static int maxAttacchi;
     public Ladro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
-        super.icona = "\uD83D\uDDE1\uFE0F";
+        super.setIcona("\uD83D\uDDE1\uFE0F");
         this.danno = 1;
     }
 
@@ -32,8 +33,8 @@ public class Ladro extends Avventuriero{
     }
 
     public int attacco(){
-        int numAttacchi = ThreadLocalRandom.current().nextInt(1, 4);
-        System.out.println(nome + " ha attaccato " + numAttacchi + " volte.");
+        int numAttacchi = ThreadLocalRandom.current().nextInt(1, maxAttacchi);
+        System.out.println(super.getNome() + " ha attaccato " + numAttacchi + " volte.");
         return (getDanno() * numAttacchi);
     }
 

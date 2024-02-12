@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Livello {
-    int livello;
+    int numLivello;
     ArrayList<Avventuriero> party;
 
     private int checkClass(String classe){
@@ -25,7 +25,7 @@ public class Livello {
         if (nEvento == 0){
             classe = "Barbaro";
             arma = "ascia";
-            amount = rand.nextInt(10)+livello;
+            amount = rand.nextInt(10)+ numLivello;
         } else if (nEvento == 1) {
             classe = "Ladro";
             arma = "coltello";
@@ -51,21 +51,20 @@ public class Livello {
         }
     }
     public Livello(ArrayList<Avventuriero> party) {
-        this.livello = 1;
-        this.livello = 1;
+        this.numLivello = 1;
         this.party = party;
     }
 
-    public int getLivello() {
-        return livello;
+    public int getNumLivello() {
+        return numLivello;
     }
 
-    public void setLivello(int livello) {
-        this.livello = livello;
+    public void setNumLivello(int numLivello) {
+        this.numLivello = numLivello;
     }
 
     public void avanzaLivello(){
-        setLivello(getLivello()+1);
+        setNumLivello(getNumLivello()+1);
     }
 
     @Override
@@ -77,6 +76,6 @@ public class Livello {
 
     @Override
     public int hashCode() {
-        return Objects.hash(livello, livello, party);
+        return Objects.hash(numLivello, numLivello, party);
     }
 }

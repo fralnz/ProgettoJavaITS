@@ -1,5 +1,6 @@
 package avventura.mondo;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Mostro {
@@ -31,6 +32,6 @@ public class Mostro {
 
     @Override
     public String toString() {
-        return  icona + '\n' + "danno=" + danno + '\n';
+        return  icona + "(danno: " + danno + ')';
     }
 }

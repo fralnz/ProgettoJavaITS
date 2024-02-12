@@ -3,11 +3,11 @@ package avventura.umani;
 import java.util.Scanner;
 
 public class Druido extends Avventuriero {
-    int forzaCura;
+    private int forzaCura;
     public Druido(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         this.forzaCura = 1;
-        super.icona = "⚕\uFE0F";
+        super.setIcona("⚕\uFE0F");
     }
 
     public Druido(String nome, String razza, int forzaCura) {
