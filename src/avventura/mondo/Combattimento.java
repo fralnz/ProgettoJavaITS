@@ -69,6 +69,18 @@ public class Combattimento {
         if (dannoParty > (dannoNemici-dannoCurato)){
             System.out.println("Hai vinto!");
             return true;
+        } else if (dannoParty == (dannoNemici-dannoCurato)) {
+            System.out.println("Pareggio! Premi invio per lanciare una moneta.");
+            tastiera.nextLine();
+            for (int i = 0; i < 3; i++){
+                System.out.print('.');
+                TimeUnit.SECONDS.sleep(1);
+            }
+            if ((new Random()).nextInt(2) == 0){
+                System.out.println("Hai vinto!");
+                return true;
+            }
+            // non ho bidogno di un else in quanto se non ritorno passa direttamente al caso in cui si perde
         }
         System.out.println("Hai perso!\n---GAME OVER---");
         return false;

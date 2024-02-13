@@ -55,8 +55,7 @@ public class ui {
         System.out.println("""
                 \u001B[1m---HAI VINTO!---\u001B[0m
                 Congratulazioni! La tua squadra di avventurieri è riuscita a superare 10 livelli!
-                Ecco i valorosi eroi:
-                """);
+                Ecco i valorosi eroi:""");
         stampaParty(party);
     }
 }
