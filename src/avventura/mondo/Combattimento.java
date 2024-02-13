@@ -35,7 +35,7 @@ public class Combattimento {
             System.out.println(mostro.getIcona() + " attacca! Danno: " + mostro.getDanno());
             // se nel party è presente un domatore, prova a domesticare il mostro
             if (idxDomatore != -1 && mostro.getIcona().equals("\uD83D\uDC3A")){
-                System.out.println(party.get(idxDomatore).getNome()+" può addomesticarlo.Vuoi addomesticarlo? (s/N)");
+                System.out.println(party.get(idxDomatore).getNome()+" può addomesticarlo. Vuoi addomesticarlo? (s/N)");
                 System.out.println("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
                 String scelta = tastiera.nextLine();
                 if (scelta.equalsIgnoreCase("s")) {
@@ -65,14 +65,13 @@ public class Combattimento {
         displayCombattimento(nemici, party, attacchiParty);
         System.out.print("Danno mostri: \u001B[31m"+dannoNemici+"\u001B[0m");
         if (dannoCurato > 0) System.out.print(" - \u001B[32m"+dannoCurato+"\u001B[0m");
-        System.out.println("\nDanno party: "+dannoParty);
+        System.out.println("\nDanno party: \u001B[31m"+dannoParty+"\u001B[0m");
         if (dannoParty > (dannoNemici-dannoCurato)){
             System.out.println("Hai vinto!");
-        }else {
-            System.out.println("Hai perso!\n---GAME OVER---");
-            return false;
+            return true;
         }
-        return true;
+        System.out.println("Hai perso!\n---GAME OVER---");
+        return false;
     }
     public static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party, ArrayList<Integer> attacchiParty) {
         int numNemici = nemici.size();

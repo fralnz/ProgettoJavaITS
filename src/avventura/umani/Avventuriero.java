@@ -1,6 +1,7 @@
 package avventura.umani;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -157,5 +158,22 @@ public abstract class Avventuriero implements Personaggio{
         return  icona + nome + "(" +
                 razza + ", " + sesso +
                 ", " + eta + " anni)";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Avventuriero that)) return false;
+        return sesso == that.sesso && eta == that.eta && Objects.equals(nome, that.nome) && Objects.equals(razza, that.razza) && Objects.equals(icona, that.icona);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, razza, icona, sesso, eta);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Ladro extends Avventuriero{
     private int danno;
-    private static int maxAttacchi;
+    private static final int maxAttacchi = 3;
     public Ladro(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         super.setIcona("\uD83D\uDDE1\uFE0F");
