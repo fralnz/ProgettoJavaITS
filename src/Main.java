@@ -45,10 +45,10 @@ public class Main {
                 // Faccio inserire 3 avventurieri all'utente
                 System.out.println("\uD83D\uDC7B Inserisci tre avventurieri:");
                 // Il tipo statico è Avventuriero
-                avventura.umani.Avventuriero.partyInit(party, membriParty);
+                avventura.Metodi.partyInit(party, membriParty);
             } else {
                 // il party viene riempito casualmente
-                avventura.umani.Avventuriero.randomParty(party, membriParty);
+                avventura.Metodi.randomParty(party, membriParty);
             }
             avventura.ui.stampaParty(party);
             System.out.println("Premi invio per continuare...");

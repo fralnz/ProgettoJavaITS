@@ -1,11 +1,10 @@
 package avventura.mondo;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
 public class Mostro {
-    String icona;
+    private String icona;
     private int danno;
     private static final String[] iconeMostri={"\uD83D\uDC79", "\uD83E\uDDCC", "\uD83D\uDC7B", "\uD83D\uDC7A", "\uD83E\uDDDF", "\uD83D\uDC3A"};
 

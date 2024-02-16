@@ -10,16 +10,6 @@ public class Barbaro extends Avventuriero{
         super.setIcona("\uD83E\uDE93");
         this.danno = 1;
     }
-
-    public Barbaro(String nome, String razza) {
-        super(nome, razza);
-    }
-
-    public Barbaro(String nome, String razza, int eta) {
-        super(nome, razza, eta);
-        this.danno = 3;
-    }
-
     public int getDanno() {
         return danno;
     }

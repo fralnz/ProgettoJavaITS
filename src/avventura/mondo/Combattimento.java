@@ -112,7 +112,7 @@ public class Combattimento {
         for (int i = 0; i < numAvventurieri; i++) {
             System.out.print("   ");
         }
-        System.out.println("⚔\uFE0F");
+        System.out.println("⚔️");
 
         // Stampa il danno degli avventurieri sopra le loro icone
         for (int i = 0; i < numAvventurieri; i++) {
