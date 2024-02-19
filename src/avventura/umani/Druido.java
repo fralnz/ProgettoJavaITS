@@ -7,7 +7,7 @@ public class Druido extends Avventuriero {
     public Druido(String nome, String razza, char sesso, int eta) {
         super(nome, razza, sesso, eta);
         this.forzaCura = 1;
-        super.setIcona("⚕\uFE0F");
+        super.setIcona("⚕️");
     }
 
     public Druido(String nome, String razza, int forzaCura) {
@@ -34,6 +34,7 @@ public class Druido extends Avventuriero {
 
     @Override
     public int attacco() {
+        // restituisco un valore negativo, così da segnare che si tratta di una cura
         return getForzaCura()*(-1);
     }
 
