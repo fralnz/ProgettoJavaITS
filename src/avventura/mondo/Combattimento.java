@@ -1,5 +1,4 @@
 package avventura.mondo;
-
 import avventura.umani.Avventuriero;
 
 import java.util.ArrayList;
@@ -7,7 +6,17 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Francesco Lanza
+ * @version 1.0
+ */
+
 public class Combattimento {
+    /**
+     * Genera un arraylist di 3 Mostri, ognuno con danno casuale e scalato con il livello
+     * @param livello il livello con cui scalare il danno generato dai nemici
+     * @return L'arraylist di Mostri generato
+     */
     public static ArrayList<Mostro> generaNemici(int livello){
         Random rand = new Random();
         int numNemici = rand.nextInt(3)+1;
@@ -18,7 +27,15 @@ public class Combattimento {
         }
         return nemici;
     }
-    public static boolean inizaCombattimento(ArrayList<Avventuriero> party, ArrayList<Mostro> nemici) throws InterruptedException {
+
+    /**
+     * Inizia las fase di combattimento e stampa tutti i danni dei nemici e del party del giocatore
+     * @param party L'arraylist di avventurieri del giocatore
+     * @param nemici L'arraylist di mostri che deve sconfiggere il giocatore
+     * @return True se il giocatore ha vinto, False se il giocatore ha perso
+     * @throws InterruptedException Generato dalla funzione sleep
+     */
+    public static boolean combattimento(ArrayList<Avventuriero> party, ArrayList<Mostro> nemici) throws InterruptedException {
         // Metti gli attacchi qua
         Scanner tastiera = new Scanner(System.in);
         int dannoNemici = 0;
@@ -85,7 +102,20 @@ public class Combattimento {
         System.out.println("Hai perso!\n---GAME OVER---");
         return false;
     }
-    public static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party, ArrayList<Integer> attacchiParty) {
+
+    /**
+     * Stampa un disegno in ascii+unicode del combattimento, raffigurante il lato nemico (sopra), il lato del giocatore (sotto) e il danno di ogni combattente
+     * Esempio:
+     * ----👺----👻----🧌----
+     *     6      4     3
+     *           ⚔️️
+     *     6      4     3
+     * ----🪓----🗡️----🪄----
+     * @param nemici Arraylist dei Mostri nemici
+     * @param party Arraylist degli Avventurieri del giocatore
+     * @param attacchiParty Arraylist di interi contenente i danni del party
+     */
+    private static void displayCombattimento(ArrayList<Mostro> nemici, ArrayList<Avventuriero> party, ArrayList<Integer> attacchiParty) {
         int numNemici = nemici.size();
         int numAvventurieri = party.size();
 
@@ -137,9 +167,5 @@ public class Combattimento {
 /*
 COMBATTIMENTO
 
-----👺----👻----🧌----
-    6      4     3
-          ⚔️️
-    6      4     3
-----🪓----🗡️----🪄----
+
  */

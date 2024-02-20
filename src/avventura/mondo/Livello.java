@@ -6,10 +6,20 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * @author Francesco Lanza
+ * @version 1.0
+ */
+
 public class Livello {
     int numLivello;
     ArrayList<Avventuriero> party;
 
+    /**
+     * Controlla se nel party e' presente un Avventuriero della classe inserita
+     * @param classe Nome della classe che si desidera controllare
+     * @return Indice del membro trovato nel party. -1 se non trovato
+     */
     private int checkClass(String classe){
         for (int i = 0; i < party.size(); i++){
             if (party.get(i).getClass().getSimpleName().equals(classe)) return i;
@@ -17,6 +27,9 @@ public class Livello {
         return -1;
     }
 
+    /**
+     * Viene generata un arma casuale e controlla se un membro del party puo' equipaggiarla
+     */
     public void GeneraEvento(){
         String classe, arma;
         int amount = 0;

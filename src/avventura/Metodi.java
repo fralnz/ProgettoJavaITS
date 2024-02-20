@@ -1,4 +1,9 @@
 package avventura;
+/**
+ * @author Francesco Lanza
+ * @version 1.0
+ *
+ */
 
 import avventura.umani.*;
 
@@ -13,6 +18,12 @@ public class Metodi {
         }
         return false;
     }
+
+    /**
+     * Si chiede all'utente di riempire un arraylist di oggetti di classe avventuriero
+     * @param party Il party che dovra' essere riempito
+     * @param membriParty Il numero di membri che deve contenere il party
+     */
     public static void partyInit(ArrayList<Avventuriero> party, int membriParty) {
         Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
         for (int i = 0; i < membriParty; i++) {
@@ -92,6 +103,11 @@ public class Metodi {
         }
     }
 
+    /**
+     * Un arraylist di oggetti di classe avventuriero viene riempito da Avventurieri casuali (massimo 5)
+     * @param party Il party che dovra' essere riempito
+     * @param membriParty Il numero di membri che deve contenere il party
+     */
     public static void randomParty(ArrayList<Avventuriero> party, int membriParty){
         if (membriParty<1 || membriParty>5){
             throw new RuntimeException("Numero di membri non valido! (1 <= membriParty <= 5)");

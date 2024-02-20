@@ -5,10 +5,15 @@ import avventura.umani.Avventuriero;
 
 import java.util.ArrayList;
 
-/*
-Classe contenente tutti i metodi di stampa menu
+/**\
+ * Classe contenente tutti i metodi di stampa menu
+ * @author Francesco Lanza
+ * @version 1.0
  */
 public class ui {
+    /**
+     * Stampa il menu iniziale
+     */
     public static void stampaMessaggioIniziale(){
         System.out.print("""
                 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -20,6 +25,10 @@ public class ui {
                 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                 """);
     }
+
+    /**
+     * Stampa le istruzioni del gioco
+     */
     public static void stampaIstruzioni(){
         System.out.print("""
                 ---ISTRUZIONI---
@@ -35,6 +44,11 @@ public class ui {
                 Seleziona un'opzione:
                 """);
     }
+
+    /**
+     * Stampa un arraylist di Avventurieri
+     * @param party l'arraylist di Avventurieri che deve essere stampato
+     */
     public static void stampaParty(ArrayList<Avventuriero> party){
         System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         System.out.println("IL TUO PARTY:");
@@ -43,6 +57,10 @@ public class ui {
         }
         System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
     }
+    /**
+     * Stampa un arraylist di Mostri
+     * @param nemici l'arraylist di Mostri che deve essere stampato
+     */
     public static void stampaNemici(ArrayList<Mostro> nemici){
         System.out.println("Hai incontrato dei nemici!");
         String out = "";
@@ -51,6 +69,10 @@ public class ui {
         }
         System.out.println(out.substring(0, out.length()-2));
     }
+    /**
+     * Stampa il messaggio di vittoria a fine gioco (richiama stampaParty)
+     * @param party l'arraylist di Avventurieri che deve essere stampato tramite stampaParty
+     */
     public static void stampaVittoria(ArrayList<Avventuriero> party){
         System.out.println("""
                 \u001B[1m---HAI VINTO!---\u001B[0m

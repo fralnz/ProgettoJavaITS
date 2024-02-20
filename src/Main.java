@@ -5,6 +5,10 @@ import avventura.umani.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Francesco Lanza
+ * @version 1.0
+ */
 /*
 Traccia: RPG
 L'utente ha un party di 3 avventurieri, deve passare 10 giornate
@@ -67,7 +71,7 @@ public class Main {
                 ArrayList<Mostro> nemici = Combattimento.generaNemici(viaggio.getNumLivello());
                 avventura.ui.stampaNemici(nemici);
                 // la variabile vittoria è true se il combattimento è terminato con la vittoria del giocatore, altrimenti false
-                vittoria = Combattimento.inizaCombattimento(party, nemici);
+                vittoria = Combattimento.combattimento(party, nemici);
                 // se il giocatore ha perso esci dal ciclo
                 if (!vittoria) break;
                 viaggio.avanzaLivello();
