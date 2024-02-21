@@ -1,3 +1,4 @@
+import avventura.Ui;
 import avventura.mondo.Mostro;
 import avventura.mondo.*;
 import avventura.umani.*;
@@ -36,13 +37,13 @@ public class Main {
             Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
             // definisco l'arraylist contenente il party del giocatore
             ArrayList<Avventuriero> party = new ArrayList<Avventuriero>();
-            avventura.ui.stampaMessaggioIniziale();
+            Ui.stampaMessaggioIniziale();
             // faccio inserire dell'utente un numero in input tra 0 e 2
             do {
                 scelta = inserisciNumero(tastiera);
                 if (scelta == 0) {
                     // stampo le istruzioni del gioco all'utente
-                    avventura.ui.stampaIstruzioni();
+                    Ui.stampaIstruzioni();
                 }
             } while (scelta < 1 || scelta > 2);
             if (scelta == 1) {
@@ -54,7 +55,7 @@ public class Main {
                 // il party viene riempito casualmente
                 avventura.Metodi.randomParty(party, membriParty);
             }
-            avventura.ui.stampaParty(party);
+            Ui.stampaParty(party);
             System.out.println("Premi invio per continuare...");
             tastiera.nextLine();
             // Inizio dell'avventura
@@ -69,7 +70,7 @@ public class Main {
                 tastiera.nextLine();
                 // genero l'array di mostri e li stampo a schermo
                 ArrayList<Mostro> nemici = Combattimento.generaNemici(viaggio.getNumLivello());
-                avventura.ui.stampaNemici(nemici);
+                Ui.stampaNemici(nemici);
                 // la variabile vittoria è true se il combattimento è terminato con la vittoria del giocatore, altrimenti false
                 vittoria = Combattimento.combattimento(party, nemici);
                 // se il giocatore ha perso esci dal ciclo
@@ -79,7 +80,7 @@ public class Main {
                 tastiera.nextLine();
             }
             // se il giocatore ha vinto, stampa un messaggio di vittoria
-            if (vittoria) avventura.ui.stampaVittoria(party);
+            if (vittoria) Ui.stampaVittoria(party);
             // chiedi di giocare di nuovo
             System.out.println("Vuoi giocare di nuovo? (s/N)");
             gioca = tastiera.nextLine().equals("s");

@@ -3,6 +3,9 @@ package avventura.mondo;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Classe per i mostri
+ */
 public class Mostro {
     private String icona;
     private int danno;

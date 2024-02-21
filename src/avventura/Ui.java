@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Francesco Lanza
  * @version 1.0
  */
-public class ui {
+public class Ui {
     /**
      * Stampa il menu iniziale
      */

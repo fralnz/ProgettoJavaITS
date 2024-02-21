@@ -2,7 +2,6 @@ package avventura;
 /**
  * @author Francesco Lanza
  * @version 1.0
- *
  */
 
 import avventura.umani.*;
