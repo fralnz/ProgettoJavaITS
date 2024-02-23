@@ -2,7 +2,7 @@
 
 Progetto in java per l'esame dell'ITS.
 
-JavaQuest e' un gioco di ruolo (RPG) molto basilare scritto in Java composto da 10 livelli, ognuno dei quali è diviso in due parti:
+**JavaQuest** e' un gioco di ruolo (RPG) molto basilare scritto in Java composto da 10 livelli, ognuno dei quali è diviso in due parti:
 
 -  **Evento** in cui si trova un’arma casuale, la quale puo' essere equipaggiata se nella squadra e' presente un personaggio adatto;
 
@@ -53,7 +53,7 @@ Definire un programma che implementi un’interfaccia a riga di comando consiste
 
 # Documentazione
 
-Il progetto e' stato creato utilizzando IntelliJ Idea.
+Una documentazione piu' dettagliata si puo' trovare consultando la [javadoc](https://fralnz.github.io/ProgettoJavaITS/).
 
 ## Premessa: termini del progetto
 
@@ -189,11 +189,11 @@ Nel caso di pareggio, il vincitore sara' estratto casualmente.
 
 ### Classe Ui
 
-La classe ui contiene metodi pubblici che stampano lunghe sequenze di caratteri che servono una funzione puramente estetica.
+La classe `Ui` contiene metodi pubblici che stampano lunghe sequenze di caratteri che servono una funzione puramente estetica.
 
 ### Classe Metodi
 
-La classe metodi contiene metodi richiamati dal Main o da altre classi e sono stati messi li per rendere il codice piu' pulito e organizzato.
+La classe `Metodi` contiene metodi richiamati dal `Main` o da altre classi e sono stati messi li per rendere il codice piu' pulito e organizzato.
 
 I piu' importanti sono:
 
@@ -206,5 +206,11 @@ I piu' importanti sono:
 ### Classe Main
 
 La `classe` `Main` racchiude il corpo principale del programma e si occupa di chiamare i metodi di prima precedentemente descritti.
+
+Il party viene salvato in un **arraylist** perche':
+
+- la malleabilita' degli arraylist li rende facili da modificare
+
+- gli arraylist possono salvare oggetti dello stesso tipo statico ma tipo dinamico diverso, rendendoli ideali per questo caso, dove il tipo statico e' `Avventuriero` e il tipo dinamico puo' variare.
 
 Il corpo del mail viene fatto ciclare in un `do while` per permettere all'utente di ricominciare una nuova partita una volta raggiunta la schermata di "game over".
