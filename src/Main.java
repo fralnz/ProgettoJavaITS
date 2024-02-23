@@ -4,16 +4,9 @@ import avventura.umani.*;
 import avventura.Metodi;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-/**
- * Corpo principale del programma
- * @author Francesco Lanza
- * @version 1.1
- */
 /*
 Traccia: RPG
-L'utente ha un party di 3 avventurieri, deve passare 10 giornate
-Ogni giorno genera 3 eventi casuali, ognuno con le sue opportunità.
+L'utente ha un party di 3 avventurieri, deve superare 10 livelli
 */
 public class Main {
     public static void main(String[] args) throws InterruptedException {
