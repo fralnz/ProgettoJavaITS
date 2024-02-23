@@ -76,9 +76,9 @@ public class Ui {
      */
     public static void stampaNemici(ArrayList<Mostro> nemici){
         System.out.println("Hai incontrato dei nemici!");
-        String out = "";
+        StringBuilder out = new StringBuilder();
         for (Mostro mostro : nemici){
-            out += mostro.getIcona() + ", ";
+            out.append(mostro.getIcona()).append(" ");
         }
         System.out.println(out.substring(0, out.length()-2));
     }
