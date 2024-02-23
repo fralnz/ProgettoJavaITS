@@ -27,11 +27,19 @@ public class Domatore extends Avventuriero{
         this.danno = danno;
     }
 
+    /**
+     * L'attacco e' dato dalla variabile di istanza danno
+     * @return il valore di danno
+     */
     public int attacco() {
         return getDanno();
     }
 
-    public void equip(int amount) {
+    /**
+     * il danno attuale viene scambiato con il valore del parametro
+     * @param amount il valore con il quale sotituire la variabile di istanza danno
+     */
+    public void equipaggia(int amount) {
         setDanno(amount);
         System.out.println("Addomesticato. Il suo danno sarà nullo.");
     }

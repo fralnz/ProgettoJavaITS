@@ -20,12 +20,19 @@ public class Mago extends Avventuriero{
         this.danno = danno;
     }
 
-    @Override
+    /**
+     * L'attacco e' dato dalla variabile di istanza danno
+     * @return il valore di danno
+     */
     public int attacco() {
         return getDanno();
     }
-    @Override
-    public void equip(int amount) {
+
+    /**
+     * la variabile di istanza danno aumenta del numero passato come parametro
+     * @param amount il valore con il quale incrementare il danno
+     */
+    public void equipaggia(int amount) {
         System.out.println(getNome()+" può impararlo.");
         setDanno(getDanno()+amount);
         System.out.println(getNome() + " ha imparato un nuovo incantesimo. Il suo potere totale ora è " + getDanno());

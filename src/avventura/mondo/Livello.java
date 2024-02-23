@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * Tiene traccia del progresso del gioco e genera un'arma casuale
  * @author Francesco Lanza
  * @version 1.0
  */
@@ -58,7 +59,7 @@ public class Livello {
         }
         System.out.println("Hai trovato un "+arma+"! (potenza: +" + amount + ")");
         try{
-            party.get(checkClass(classe)).equip(amount);
+            party.get(checkClass(classe)).equipaggia(amount);
         } catch (IndexOutOfBoundsException e){
             System.out.println("Nessun membro del tuo party può usarlo.");
         }

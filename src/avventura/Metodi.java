@@ -10,7 +10,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**\
+ * Classe contenente metodi chiamati dal main
+ * @author Francesco Lanza
+ * @version 1.0
+ */
+
 public class Metodi {
+    /**
+     * Fa inserire all'utente un input e, se questo non e' un numero ritorna -1
+     * @param tastiera scanner da passare come parametro
+     * @return
+     */
     public static int inserisciNumero(Scanner tastiera){
         try{
             return Integer.parseInt(tastiera.nextLine());
@@ -20,6 +31,13 @@ public class Metodi {
         // se l'input non è valido ritorno -1. A me va bene perchè non uso mai -1 nel main.
         return -1;
     }
+
+    /**
+     * Controlla che nell'arraylist di Avventuriero sia presente un membro il cui nome del tipo dinamico corrisponda a una stringa
+     * @param party Arraylist di Avventuriero da controllare
+     * @param nomeClasse nome della classe da controllare
+     * @return true se il controllo e' vero, altrimenti false
+     */
     private static boolean checkPartyClass(ArrayList<Avventuriero> party, String nomeClasse){
         for (Avventuriero membro : party){
             if (nomeClasse.equalsIgnoreCase(membro.getClass().getSimpleName())) return true;

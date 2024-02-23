@@ -32,14 +32,20 @@ public class Druido extends Avventuriero {
         this.forzaCura = forzaCura;
     }
 
-    @Override
+    /**
+     * L'attacco e' dato dalla variabile di istanza forzaCura
+     * @return -forzaCura, in modo tale da capire che si tratta di una cura
+     */
     public int attacco() {
         // restituisco un valore negativo, così da segnare che si tratta di una cura
         return getForzaCura()*(-1);
     }
 
-    @Override
-    public void equip(int amount) {
+    /**
+     * scambia forzaCura attuale con il parametro
+     * @param amount il valore con il quale sotituire la variabile di istanza forzaCura
+     */
+    public void equipaggia(int amount) {
         Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può imparalo.");
         System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ getNome() + ": "+ getForzaCura());

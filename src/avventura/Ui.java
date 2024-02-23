@@ -33,6 +33,9 @@ public class Ui {
                 """);
     }
 
+    /**
+     * Stampa l'ascii art del titolo
+     */
     public static void stampaTitolo(){
         System.out.println(titolo);
     }

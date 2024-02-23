@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Classe contenete metodi per generare e stampare il combattimento tra un arraylist di Avventuriero e un arraylist di Mostro
  * @author Francesco Lanza
  * @version 1.0
  */
@@ -56,7 +57,7 @@ public class Combattimento {
                 System.out.println("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
                 String scelta = tastiera.nextLine();
                 if (scelta.equalsIgnoreCase("s")) {
-                    party.get(idxDomatore).equip(mostro.getDanno());
+                    party.get(idxDomatore).equipaggia(mostro.getDanno());
                     dannoNemici -= mostro.getDanno();
                     mostro.setDanno(0);
                 } else {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * Corpo principale del programma
  * @author Francesco Lanza
  * @version 1.1
  */

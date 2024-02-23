@@ -1,6 +1,11 @@
 package avventura.umani;
-
 import java.util.Objects;
+
+/**
+ * Classe astratta che definisce le propieta' comuni degli avventurieri
+ * @author Francesco Lanza
+ * @version 1.0
+ */
 
 public abstract class Avventuriero implements Personaggio{
     private String nome, razza, icona;
