@@ -76,6 +76,14 @@ public class Livello {
         this.numLivello = numLivello;
     }
 
+    public ArrayList<Avventuriero> getParty() {
+        return party;
+    }
+
+    public void setParty(ArrayList<Avventuriero> party) {
+        this.party = party;
+    }
+
     public void avanzaLivello(){
         setNumLivello(getNumLivello()+1);
     }

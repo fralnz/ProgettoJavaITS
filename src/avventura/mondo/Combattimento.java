@@ -43,7 +43,7 @@ public class Combattimento {
         int dannoCurato = 0;
         // controllo se il party ha un domatore
         int idxDomatore = -1;
-        for (int i=0; i<party.size(); i++){if (party.get(i).getClass().getSimpleName().equals("Domatore")) idxDomatore = i;};
+        for (int i=0; i<party.size(); i++){if (party.get(i).getClass().getSimpleName().equals("Domatore")) idxDomatore = i;}
         // Inizia il combattimento
         System.out.println("---INIZIO COMBATTIMENTO---");
         System.out.println("TURNO DEI NEMICI");
@@ -163,9 +163,3 @@ public class Combattimento {
         System.out.println("----");
     }
 }
-
-/*
-COMBATTIMENTO
-
-
- */
