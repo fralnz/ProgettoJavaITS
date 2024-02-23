@@ -1,38 +1,27 @@
 import avventura.Ui;
-import avventura.mondo.Mostro;
 import avventura.mondo.*;
 import avventura.umani.*;
-
+import avventura.Metodi;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * @author Francesco Lanza
- * @version 1.0
+ * @version 1.1
  */
 /*
 Traccia: RPG
 L'utente ha un party di 3 avventurieri, deve passare 10 giornate
 Ogni giorno genera 3 eventi casuali, ognuno con le sue opportunità.
-
-TODO: aggiungere la javadoc
 */
 public class Main {
-    private static int inserisciNumero(Scanner tastiera){
-        try{
-            return Integer.parseInt(tastiera.nextLine());
-        }catch(Exception e){
-            System.out.println("Input non valido. Inserisci un numero.");
-        }
-        // se l'input non è valido ritorno -1. A me va bene perchè non uso mai -1 nel main.
-        return -1;
-    }
     public static void main(String[] args) throws InterruptedException {
         // inizializzo le variabili
         boolean gioca, vittoria = false;
         int scelta = 0;
         int membriParty = 3;
         // inizio il ciclo do while contenente il gioco
+        Ui.stampaTitolo();
         do {
             Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
             // definisco l'arraylist contenente il party del giocatore
@@ -40,7 +29,7 @@ public class Main {
             Ui.stampaMessaggioIniziale();
             // faccio inserire dell'utente un numero in input tra 0 e 2
             do {
-                scelta = inserisciNumero(tastiera);
+                scelta = Metodi.inserisciNumero(tastiera);
                 if (scelta == 0) {
                     // stampo le istruzioni del gioco all'utente
                     Ui.stampaIstruzioni();

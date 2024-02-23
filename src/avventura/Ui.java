@@ -11,6 +11,13 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Ui {
+    private static final String titolo = """
+               __                     ____                 _  \s
+               \\ \\  __ ___   ____ _  /___ \\_   _  ___  ___| |_\s
+                \\ \\/ _` \\ \\ / / _` |//  / / | | |/ _ \\/ __| __|
+             /\\_/ / (_| |\\ V / (_| / \\_/ /| |_| |  __/\\__ \\ |_\s
+             \\___/ \\__,_| \\_/ \\__,_\\___,_\\ \\__,_|\\___||___/\\__|
+                                                              \s""";
     /**
      * Stampa il menu iniziale
      */
@@ -26,6 +33,9 @@ public class Ui {
                 """);
     }
 
+    public static void stampaTitolo(){
+        System.out.println(titolo);
+    }
     /**
      * Stampa le istruzioni del gioco
      */

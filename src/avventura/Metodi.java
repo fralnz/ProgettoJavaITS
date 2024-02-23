@@ -11,6 +11,15 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Metodi {
+    public static int inserisciNumero(Scanner tastiera){
+        try{
+            return Integer.parseInt(tastiera.nextLine());
+        }catch(Exception e){
+            System.out.println("Input non valido. Inserisci un numero.");
+        }
+        // se l'input non è valido ritorno -1. A me va bene perchè non uso mai -1 nel main.
+        return -1;
+    }
     private static boolean checkPartyClass(ArrayList<Avventuriero> party, String nomeClasse){
         for (Avventuriero membro : party){
             if (nomeClasse.equalsIgnoreCase(membro.getClass().getSimpleName())) return true;
