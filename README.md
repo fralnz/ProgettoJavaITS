@@ -179,9 +179,9 @@ Per prima cosa calcola e mostra il danno dei nemici, poi quello del party del gi
 
 ```
 ----👺----👻----🧌----
-    3      5     3
-          ⚔️️
-    6      4     3
+    3     5     3
+         ⚔️️
+    6     4     3
 ----🪓----🗡️----🪄----
 ```
 
