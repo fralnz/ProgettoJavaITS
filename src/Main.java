@@ -12,14 +12,14 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         // inizializzo le variabili
         boolean gioca, vittoria = false;
-        int scelta = 0;
+        int scelta;
         int membriParty = 3;
         // inizio il ciclo do while contenente il gioco
         Ui.stampaTitolo();
         do {
             Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
             // definisco l'arraylist contenente il party del giocatore
-            ArrayList<Avventuriero> party = new ArrayList<Avventuriero>();
+            ArrayList<Avventuriero> party = new ArrayList<>();
             Ui.stampaMessaggioIniziale();
             // faccio inserire dell'utente un numero in input tra 0 e 2
             do {
@@ -31,7 +31,7 @@ public class Main {
             } while (scelta < 1 || scelta > 2);
             if (scelta == 1) {
                 // Faccio inserire 3 avventurieri all'utente
-                System.out.println("\uD83D\uDC7B Inserisci tre avventurieri:");
+                System.out.println("Inserisci " + membriParty + " avventurieri:");
                 // Il tipo statico è Avventuriero
                 avventura.Metodi.partyInit(party, membriParty);
             } else {
@@ -66,7 +66,7 @@ public class Main {
             if (vittoria) Ui.stampaVittoria(party);
             // chiedi di giocare di nuovo
             System.out.println("Vuoi giocare di nuovo? (s/N)");
-            gioca = tastiera.nextLine().equals("s");
+            gioca = Metodi.selezioneScelta();
         }while (gioca);
     }
 }

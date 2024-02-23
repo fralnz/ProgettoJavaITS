@@ -1,6 +1,6 @@
 package avventura.umani;
-
-import java.util.Scanner;
+import avventura.Metodi;
+import java.util.Objects;
 
 public class Druido extends Avventuriero {
     private int forzaCura;
@@ -32,6 +32,20 @@ public class Druido extends Avventuriero {
         this.forzaCura = forzaCura;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Druido druido = (Druido) o;
+        return forzaCura == druido.forzaCura;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), forzaCura);
+    }
+
     /**
      * L'attacco e' dato dalla variabile di istanza forzaCura
      * @return -forzaCura, in modo tale da capire che si tratta di una cura
@@ -46,12 +60,12 @@ public class Druido extends Avventuriero {
      * @param amount il valore con il quale sotituire la variabile di istanza forzaCura
      */
     public void equipaggia(int amount) {
-        Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può imparalo.");
         System.out.println("Vuoi impararlo? (s/N) Potere curativo attuale di "+ getNome() + ": "+ getForzaCura());
-        String scelta = tastiera.nextLine();
-        if (scelta.equalsIgnoreCase("s")){
+        boolean scelta = Metodi.selezioneScelta();
+        if (scelta){
             setForzaCura(amount);
+            System.out.println("Imparato.");
         }else System.out.println("Non imparato.");
     }
 }

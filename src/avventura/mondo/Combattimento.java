@@ -1,4 +1,5 @@
 package avventura.mondo;
+import avventura.Metodi;
 import avventura.umani.Avventuriero;
 
 import java.util.ArrayList;
@@ -55,8 +56,8 @@ public class Combattimento {
             if (idxDomatore != -1 && mostro.getIcona().equals("\uD83D\uDC3A")){
                 System.out.println(party.get(idxDomatore).getNome()+" può addomesticarlo. Vuoi addomesticarlo? (s/N)");
                 System.out.println("Danno attuale di "+party.get(idxDomatore).getNome()+": "+party.get(idxDomatore).attacco());
-                String scelta = tastiera.nextLine();
-                if (scelta.equalsIgnoreCase("s")) {
+                boolean scelta = Metodi.selezioneScelta();
+                if (scelta) {
                     party.get(idxDomatore).equipaggia(mostro.getDanno());
                     dannoNemici -= mostro.getDanno();
                     mostro.setDanno(0);

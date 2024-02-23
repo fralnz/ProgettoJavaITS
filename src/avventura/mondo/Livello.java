@@ -57,7 +57,7 @@ public class Livello {
             classe = "Err";
             arma = "Err";
         }
-        System.out.println("Hai trovato un "+arma+"! (potenza: +" + amount + ")");
+        System.out.println("Hai trovato un "+arma+"! (potenza: " + amount + ")");
         try{
             party.get(checkClass(classe)).equipaggia(amount);
         } catch (IndexOutOfBoundsException e){
@@ -99,5 +99,13 @@ public class Livello {
     @Override
     public int hashCode() {
         return Objects.hash(numLivello, numLivello, party);
+    }
+
+    @Override
+    public String toString() {
+        return "Livello{" +
+                "numLivello=" + numLivello +
+                ", party=" + party +
+                '}';
     }
 }

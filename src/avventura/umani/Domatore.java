@@ -1,5 +1,7 @@
 package avventura.umani;
 
+import java.util.Objects;
+
 public class Domatore extends Avventuriero{
     private int danno;
     public Domatore(String nome, String razza, char sesso, int eta) {
@@ -25,6 +27,20 @@ public class Domatore extends Avventuriero{
 
     public void setDanno(int danno) {
         this.danno = danno;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Domatore domatore = (Domatore) o;
+        return danno == domatore.danno;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), danno);
     }
 
     /**

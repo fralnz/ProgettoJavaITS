@@ -1,5 +1,7 @@
 package avventura.umani;
 
+import java.util.Objects;
+
 public class Mago extends Avventuriero{
     private int danno;
     public Mago(String nome, String razza, char sesso, int eta) {
@@ -19,7 +21,19 @@ public class Mago extends Avventuriero{
     public void setDanno(int danno) {
         this.danno = danno;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Mago mago = (Mago) o;
+        return danno == mago.danno;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), danno);
+    }
     /**
      * L'attacco e' dato dalla variabile di istanza danno
      * @return il valore di danno

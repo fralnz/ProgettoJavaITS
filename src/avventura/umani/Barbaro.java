@@ -1,6 +1,6 @@
 package avventura.umani;
-
-import java.util.Scanner;
+import avventura.Metodi;
+import java.util.Objects;
 
 public class Barbaro extends Avventuriero{
     private int danno;
@@ -18,6 +18,20 @@ public class Barbaro extends Avventuriero{
         this.danno = danno;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Barbaro barbaro = (Barbaro) o;
+        return danno == barbaro.danno;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), danno);
+    }
+
     /**
      * L'attacco e' dato dalla variabile di istanza danno
      * @return il valore di danno
@@ -31,11 +45,10 @@ public class Barbaro extends Avventuriero{
      * @param amount il valore con il quale sotituire la variabile di istanza danno
      */
     public void equipaggia(int amount) {
-        Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può equipaggiarlo.");
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());
-        String scelta = tastiera.nextLine();
-        if (scelta.equalsIgnoreCase("s")){
+        boolean scelta = Metodi.selezioneScelta();
+        if (scelta){
             setDanno(amount);
             System.out.println("Equipaggiato.");
         }else System.out.println("Non equipaggiato.");

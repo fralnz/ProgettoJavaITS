@@ -1,7 +1,6 @@
 package avventura.umani;
-
-import java.util.Random;
-import java.util.Scanner;
+import avventura.Metodi;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Ladro extends Avventuriero{
@@ -32,6 +31,20 @@ public class Ladro extends Avventuriero{
         this.danno = danno;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Ladro ladro = (Ladro) o;
+        return danno == ladro.danno;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), danno);
+    }
+
     /**
      * L'attacco e' dato dalla variabile di istanza danno, attacca un numero di volte pari alla costante maxAttacchi
      * @return danno moltiplicato per un numero casuale che va da 1 a maxAttacchi
@@ -47,11 +60,10 @@ public class Ladro extends Avventuriero{
      * @param amount il valore con il quale sotituire danno
      */
     public void equipaggia(int amount) {
-        Scanner tastiera = new Scanner(System.in);
         System.out.println(getNome()+" può equipaggiarlo.");
         System.out.println("Vuoi equipaggiarlo? (s/N) Danno attuale di "+ getNome() + ": "+ getDanno());
-        String scelta = tastiera.nextLine();
-        if (scelta.equalsIgnoreCase("s")){
+        boolean scelta = Metodi.selezioneScelta();
+        if (scelta){
             setDanno(amount);
             System.out.println("Equipaggiato.");
         }else System.out.println("Non equipaggiato.");

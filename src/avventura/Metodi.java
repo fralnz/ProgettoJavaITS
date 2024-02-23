@@ -1,11 +1,5 @@
 package avventura;
-/**
- * @author Francesco Lanza
- * @version 1.0
- */
-
 import avventura.umani.*;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -20,7 +14,7 @@ public class Metodi {
     /**
      * Fa inserire all'utente un input e, se questo non e' un numero ritorna -1
      * @param tastiera scanner da passare come parametro
-     * @return
+     * @return il numero inserito, -1 se input non valido
      */
     public static int inserisciNumero(Scanner tastiera){
         try{
@@ -53,13 +47,15 @@ public class Metodi {
     public static void partyInit(ArrayList<Avventuriero> party, int membriParty) {
         Scanner tastiera = new Scanner(System.in);  //definisco un nuovo scanner
         for (int i = 0; i < membriParty; i++) {
-            String nome;
+            String nome, razza;
             System.out.print("Inserisci il nome: ");
             do {
                 nome = tastiera.nextLine();
             }while(nome.isEmpty());
             System.out.print("Inserisci la razza: ");
-            String razza = tastiera.nextLine();
+            do {
+                razza = tastiera.nextLine();
+            }while (razza.isEmpty());
             System.out.print("""
                     Inserisci il sesso (m/f)
                     (facoltativo)
@@ -70,8 +66,19 @@ public class Metodi {
                 sesso = 'X';
             } else sesso = sessoInp.toUpperCase().charAt(0);
             // controllo che il carattere inserito sia accettato
-            System.out.print("Inserisci l'eta (facoltativo): ");
-            int eta = tastiera.nextInt();      // da implementare la gesitione delle eccezioni per renderla effettivamente facoltativa
+            System.out.print("Inserisci l'eta (anni): ");
+            int eta;
+            // non accetto eta minori di 0
+            do {
+                String etaStr = tastiera.nextLine();
+                try {
+                    eta = Integer.parseInt(etaStr);
+                    if (eta < 1) System.out.println("Assciurati di inserire un eta' reale (almeno 1)");
+                } catch (NumberFormatException e){
+                    System.out.println("Input non valido! Inserisci un numero.");
+                    eta = 0;    // nel caso in cui non si inserisca un numero e' meglio ri-inizializzare eta, per evitare errori durante il controllo do-while
+                }
+            } while (eta < 1);
             int scelta;
             do {
                 System.out.print("""
@@ -97,6 +104,7 @@ public class Metodi {
                     // metto scelta=-1 per far ripartire il ciclo
                     scelta = -1;
                 }
+                // Tipo Statico: Avventuriero
                 else switch (scelta) {
                     case 0:
                         System.out.println("""
@@ -105,9 +113,8 @@ public class Metodi {
                                 3) DRUIDO: cura il party (diminuisce il danno totale dei nemici). Può memorizzare solo una ricetta alla volta
                                 4) DOMATORE: capace di addomesticare gli animali nemici, azzerandone il danno e rendendolo proprio
                                 5) LADRO: ha un danno di base minore rispetto al barbaro, ma è capace di attaccare più volte
-                                ...
                                 """);
-                        // Tipo Statico: Avventuriero
+                        break;
                     case 1:
                         party.add(new Barbaro(nome, razza, sesso, eta));
                         break;
@@ -151,5 +158,19 @@ public class Metodi {
             party.add(avventurieriCasuali.get(randomNum));
             avventurieriCasuali.remove(avventurieriCasuali.get(randomNum));
         }
+    }
+
+    /**
+     * Fa inserire all'utente S o N. Nel caso in cui non venga inserito niente si prende N come default. Se viene inserito altro si richiede all'utente finche' non si ha un input appropiato
+     * @return true se S, false se N o vuoto.
+     */
+    public static boolean selezioneScelta(){
+        Scanner tastiera = new Scanner(System.in);
+        do {
+            String scelta = tastiera.nextLine();
+            if (scelta.equalsIgnoreCase("s")) return true;
+            else if (scelta.isEmpty() || scelta.equalsIgnoreCase("n")) return false;
+            else System.out.println("Input errato. Inserisci S o N(default se non inserisci niente)");
+        } while (true);
     }
 }
